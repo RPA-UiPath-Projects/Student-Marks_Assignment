@@ -1,0 +1,366 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" mva:VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="789,2212" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:str="clr-namespace:System.Text.RegularExpressions;assembly=System" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:upap="clr-namespace:UiPath.PDF.Activities.PDF;assembly=UiPath.PDF.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="35">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.PDF.Activities</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>UiPath.PDF.Activities.PDF</x:String>
+      <x:String>UiPath.Shared.Activities.Business</x:String>
+      <x:String>UiPath.Platform.ResourceHandling</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>Microsoft.VisualBasic.CompilerServices</x:String>
+      <x:String>UiPath.Excel.Activities</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="27">
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>UiPath.PDF.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>System.Collections.Immutable</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.WindowsRuntime</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Flowchart sap:VirtualizedContainerService.HintSize="799,2260" sap2010:WorkflowViewState.IdRef="Flowchart_1">
+    <Flowchart.Variables>
+      <Variable x:TypeArguments="x:String" Name="pdf_doc" />
+      <Variable x:TypeArguments="x:Int32" Name="pages_count" />
+      <Variable x:TypeArguments="x:String" Name="pdf_text" />
+      <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="matches" />
+      <Variable x:TypeArguments="x:Int32" Name="i" />
+      <Variable x:TypeArguments="sd:DataTable" Name="sheet1_dt" />
+    </Flowchart.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <av:Point x:Key="ShapeLocation">270,2.5</av:Point>
+        <av:Size x:Key="ShapeSize">60,75</av:Size>
+        <av:PointCollection x:Key="ConnectorLocation">330,40 590,40 590,184.5</av:PointCollection>
+        <x:Double x:Key="Width">765</x:Double>
+        <x:Double x:Key="Height">2223.52</x:Double>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Flowchart.StartNode>
+      <x:Reference>__ReferenceID6</x:Reference>
+    </Flowchart.StartNode>
+    <FlowStep x:Name="__ReferenceID4">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <av:Point x:Key="ShapeLocation">169,110</av:Point>
+          <av:Size x:Key="ShapeSize">262,60</av:Size>
+          <av:PointCollection x:Key="ConnectorLocation">300,170 300,194.5</av:PointCollection>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <Assign sap:VirtualizedContainerService.HintSize="262,60" sap2010:WorkflowViewState.IdRef="Assign_2">
+        <Assign.To>
+          <OutArgument x:TypeArguments="x:String">[pdf_doc]</OutArgument>
+        </Assign.To>
+        <Assign.Value>
+          <InArgument x:TypeArguments="x:String">Input\FE 2015 Revised result may june 2019.pdf</InArgument>
+        </Assign.Value>
+      </Assign>
+      <FlowStep.Next>
+        <FlowStep x:Name="__ReferenceID0">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <av:Point x:Key="ShapeLocation">200,194.5</av:Point>
+              <av:Size x:Key="ShapeSize">200,51</av:Size>
+              <av:PointCollection x:Key="ConnectorLocation">300,245.5 300,274.02</av:PointCollection>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <upap:GetPDFPageCount DisplayName="Get PDF Page Count" FileName="[pdf_doc]" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="GetPDFPageCount_2" PageCount="[pages_count]" />
+          <FlowStep.Next>
+            <FlowStep x:Name="__ReferenceID1">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <av:Point x:Key="ShapeLocation">200,274.02</av:Point>
+                  <av:Size x:Key="ShapeSize">200,51</av:Size>
+                  <av:PointCollection x:Key="ConnectorLocation">300,325.02 300,364.02</av:PointCollection>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:ReadPDFText PreserveFormatting="{x:Null}" DisplayName="Read PDF Text" FileName="[pdf_doc]" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="ReadPDFText_4" Range="All" Text="[pdf_text]">
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:ReadPDFText>
+              <FlowStep.Next>
+                <FlowStep x:Name="__ReferenceID3">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:Point x:Key="ShapeLocation">200,364.02</av:Point>
+                      <av:Size x:Key="ShapeSize">200,51</av:Size>
+                      <av:PointCollection x:Key="ConnectorLocation">300,415.02 300,459.52</av:PointCollection>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <ui:Matches BuilderPattern="(F\d{9})\  ([\w]+\ [\w]+\ [\w]*(?=[\  ]))[\s\w\ \d\+\%\[\]\~\.\:]*((?&lt;=SEM.:1\s\s)[\s\w\*\-\d\+\/\/\$]*(?=\sSEM.:2))[\s\w\.\:]*((?&lt;=SEM.:2\s\s)[\s\w\*\-\d\+\/\$]*(?=\sFIRST YEAR SGPA : ))[\s\w\ \:]*((?&lt;=FIRST YEAR SGPA : )[\d\.\-]{1,4})[\w\,\:\ ]*((?&lt;=\ TOTAL CREDITS EARNED : )\d{1,2}(?=\s))" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="Matches_5" Input="[pdf_text]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;(F\\d{9})\\  ([\\w]+\\ [\\w]+\\ [\\w]*(?=[\\  ]))[\\s\\w\\ \\d\\+\\%\\[\\]\\~\\.\\:]*((?&lt;=SEM.:1\\s\\s)[\\s\\w\\*\\-\\d\\+\\\/\\\/\\$]*(?=\\sSEM.:2))[\\s\\w\\.\\:]*((?&lt;=SEM.:2\\s\\s)[\\s\\w\\*\\-\\d\\+\\\/\\$]*(?=\\sFIRST YEAR SGPA : ))[\\s\\w\\ \\:]*((?&lt;=FIRST YEAR SGPA : )[\\d\\.\\-]{1,4})[\\w\\,\\:\\ ]*((?&lt;=\\ TOTAL CREDITS EARNED : )\\d{1,2}(?=\\s))&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(F\d{9})\ +([\w\.\`]+\ [\w\.\`]*\ [\w\.\`]*(?=[\  ]))[\s\w\ \d\+\%\[\]\~\.\:\?]*((?&lt;=SEM.:1\s\s)[\s\w\*\-\d\+\/\/\$\#]*(?=\sSEM.:2))[\s\w\.\:]*((?&lt;=SEM.:2\s\s)[\s\w\*\-\d\+\/\$\#]*(?=\sFIRST YEAR SGPA : ))[\s\w\ \:]*((?&lt;=FIRST YEAR SGPA : )[\d\.\-]+(?=\,))[\w\,\:\ ]*((?&lt;=\ TOTAL CREDITS EARNED : )\d{1,2}(?=\s))" RegexOption="IgnoreCase, Compiled" Result="[matches]">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                  </ui:Matches>
+                  <FlowStep.Next>
+                    <FlowStep x:Name="__ReferenceID2">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <av:Point x:Key="ShapeLocation">133,459.52</av:Point>
+                          <av:Size x:Key="ShapeSize">334,80</av:Size>
+                          <av:PointCollection x:Key="ConnectorLocation">300,539.52 300,614.02</av:PointCollection>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:RepeatNumberOfTimesX DisplayName="Repeat Number of Times" sap:VirtualizedContainerService.HintSize="334,80" sap2010:WorkflowViewState.IdRef="RepeatNumberOfTimesX_5" NumberOfTimes="[matches.Count]" StartAt="0">
+                        <ui:RepeatNumberOfTimesX.Body>
+                          <ActivityAction x:TypeArguments="x:Int32">
+                            <ActivityAction.Argument>
+                              <DelegateInArgument x:TypeArguments="x:Int32" Name="idx" />
+                            </ActivityAction.Argument>
+                            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="418,1681" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                              <Sequence.Variables>
+                                <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="sem2_sub1" />
+                                <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="sem1_sub1" />
+                                <Variable x:TypeArguments="x:String" Name="s1_Str" />
+                                <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="sem1_sub2" />
+                                <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="sem1_sub3" />
+                                <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="sem1_sub4" />
+                                <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="sem1_sub6" />
+                                <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="sem1_sub5" />
+                                <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="sem2_sub6" />
+                                <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="sem2_sub5" />
+                                <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="sem2_sub4" />
+                                <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="sem2_sub3" />
+                                <Variable x:TypeArguments="scg:IEnumerable(str:Match)" Name="sem2_sub2" />
+                                <Variable x:TypeArguments="x:String" Name="str" />
+                                <Variable x:TypeArguments="s:String[]" Name="row_arr" />
+                              </Sequence.Variables>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <Sequence DisplayName="SEM 1" sap:VirtualizedContainerService.HintSize="376,646" sap2010:WorkflowViewState.IdRef="Sequence_17">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:Matches BuilderPattern="(?&lt;=107001)[\d\/\w\+\ \-\*\#\$]*(\d{3}(?=\/100))[\d\/\ \-]*F{0,2}[\ \d]*([\w]\+*(?=\ ))[\ \d]+(?=\n)[\d\n]*(?&lt;=10700[92])[\d\/\w\+\ \-\*\#\$]*(\d{3}(?=\/100))[\d\/\ \-]*F{0,2}[\ \d]*([\w]\+*(?=\ ))[\ \d]+(?=\n)[\d\n]*(?&lt;=110003)[\d\/\w\+\ \-\*\#\$]*([\d\$]{3}(?=\/050))[\d\/\ \-]*F{0,2}[\ \d]*([\w]\+*(?=\ ))[\ \d]+(?=\d)[\d\n]*(?&lt;=1030[01][24])[\d\/\w\+\ \-\*\#\$]*([\d\$]{3}(?=\/100))[\d\/\ \-]*F{0,2}[\ \d]*([\w]\+*(?=\ ))[\ \d]+(?=\d)[\d\n]*(?&lt;=101005)[\d\/\w\+\ \-\*\#\$]*([\d\$]{3}(?=\/100))[\d\/\ \-]*F{0,2}[\ \d]*([\w]\+*(?=\ ))[\ \d]+(?=\d)[\d\n]*(?&lt;=102006)[\d\/\w\+\ \-\*\#\$]*([\d\$]{3}(?=\/100))[\d\/\ \-]*F{0,2}[\ \d]*([\w]\+*(?=\ ))[\ \d]+" DisplayName="Sem 1 Sub 1Marks &amp; Grades" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="Matches_7" Input="[matches(idx).Groups(3).Value]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;(?&lt;=107001)[\\d\\\/\\w\\+\\ \\-\\*\\#\\$]*(\\d{3}(?=\\\/100))[\\d\\\/\\ \\-]*F{0,2}[\\ \\d]*([\\w]\\+*(?=\\ ))[\\ \\d]+(?=\\n)[\\d\\n]*(?&lt;=10700[92])[\\d\\\/\\w\\+\\ \\-\\*\\#\\$]*(\\d{3}(?=\\\/100))[\\d\\\/\\ \\-]*F{0,2}[\\ \\d]*([\\w]\\+*(?=\\ ))[\\ \\d]+(?=\\n)[\\d\\n]*(?&lt;=110003)[\\d\\\/\\w\\+\\ \\-\\*\\#\\$]*([\\d\\$]{3}(?=\\\/050))[\\d\\\/\\ \\-]*F{0,2}[\\ \\d]*([\\w]\\+*(?=\\ ))[\\ \\d]+(?=\\d)[\\d\\n]*(?&lt;=1030[01][24])[\\d\\\/\\w\\+\\ \\-\\*\\#\\$]*([\\d\\$]{3}(?=\\\/100))[\\d\\\/\\ \\-]*F{0,2}[\\ \\d]*([\\w]\\+*(?=\\ ))[\\ \\d]+(?=\\d)[\\d\\n]*(?&lt;=101005)[\\d\\\/\\w\\+\\ \\-\\*\\#\\$]*([\\d\\$]{3}(?=\\\/100))[\\d\\\/\\ \\-]*F{0,2}[\\ \\d]*([\\w]\\+*(?=\\ ))[\\ \\d]+(?=\\d)[\\d\\n]*(?&lt;=102006)[\\d\\\/\\w\\+\\ \\-\\*\\#\\$]*([\\d\\$]{3}(?=\\\/100))[\\d\\\/\\ \\-]*F{0,2}[\\ \\d]*([\\w]\\+*(?=\\ ))[\\ \\d]+&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(?&lt;=107001)[\d\/\w\+\ \-\*\#\$]*([\d\$AB]{2,3}\#{0,1}(?=\/100))[\d\/\ \-]*F{0,2}[\ \d]*([\w]\+*(?=\ ))[\ \d]+(?=\d)" RegexOption="Multiline" Result="[sem1_sub1]" />
+                                <ui:Matches BuilderPattern="(?&lt;=107001)[\d\/\w\+\ \-\*\#\$]*(\d{3}(?=\/100))[\d\/\ \-]*F{0,2}[\ \d]*([\w]\+*(?=\ ))[\ \d]+(?=\n)[\d\n]*(?&lt;=10700[92])[\d\/\w\+\ \-\*\#\$]*(\d{3}(?=\/100))[\d\/\ \-]*F{0,2}[\ \d]*([\w]\+*(?=\ ))[\ \d]+(?=\n)[\d\n]*(?&lt;=110003)[\d\/\w\+\ \-\*\#\$]*([\d\$]{3}(?=\/050))[\d\/\ \-]*F{0,2}[\ \d]*([\w]\+*(?=\ ))[\ \d]+(?=\d)[\d\n]*(?&lt;=1030[01][24])[\d\/\w\+\ \-\*\#\$]*([\d\$]{3}(?=\/100))[\d\/\ \-]*F{0,2}[\ \d]*([\w]\+*(?=\ ))[\ \d]+(?=\d)[\d\n]*(?&lt;=101005)[\d\/\w\+\ \-\*\#\$]*([\d\$]{3}(?=\/100))[\d\/\ \-]*F{0,2}[\ \d]*([\w]\+*(?=\ ))[\ \d]+(?=\d)[\d\n]*(?&lt;=102006)[\d\/\w\+\ \-\*\#\$]*([\d\$]{3}(?=\/100))[\d\/\ \-]*F{0,2}[\ \d]*([\w]\+*(?=\ ))[\ \d]+" DisplayName="Sem 1 Sub 2 Marks &amp; Grades" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="Matches_8" Input="[matches(idx).Groups(3).Value]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;(?&lt;=107001)[\\d\\\/\\w\\+\\ \\-\\*\\#\\$]*(\\d{3}(?=\\\/100))[\\d\\\/\\ \\-]*F{0,2}[\\ \\d]*([\\w]\\+*(?=\\ ))[\\ \\d]+(?=\\n)[\\d\\n]*(?&lt;=10700[92])[\\d\\\/\\w\\+\\ \\-\\*\\#\\$]*(\\d{3}(?=\\\/100))[\\d\\\/\\ \\-]*F{0,2}[\\ \\d]*([\\w]\\+*(?=\\ ))[\\ \\d]+(?=\\n)[\\d\\n]*(?&lt;=110003)[\\d\\\/\\w\\+\\ \\-\\*\\#\\$]*([\\d\\$]{3}(?=\\\/050))[\\d\\\/\\ \\-]*F{0,2}[\\ \\d]*([\\w]\\+*(?=\\ ))[\\ \\d]+(?=\\d)[\\d\\n]*(?&lt;=1030[01][24])[\\d\\\/\\w\\+\\ \\-\\*\\#\\$]*([\\d\\$]{3}(?=\\\/100))[\\d\\\/\\ \\-]*F{0,2}[\\ \\d]*([\\w]\\+*(?=\\ ))[\\ \\d]+(?=\\d)[\\d\\n]*(?&lt;=101005)[\\d\\\/\\w\\+\\ \\-\\*\\#\\$]*([\\d\\$]{3}(?=\\\/100))[\\d\\\/\\ \\-]*F{0,2}[\\ \\d]*([\\w]\\+*(?=\\ ))[\\ \\d]+(?=\\d)[\\d\\n]*(?&lt;=102006)[\\d\\\/\\w\\+\\ \\-\\*\\#\\$]*([\\d\\$]{3}(?=\\\/100))[\\d\\\/\\ \\-]*F{0,2}[\\ \\d]*([\\w]\\+*(?=\\ ))[\\ \\d]+&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(?&lt;=10700[92])[\d\/\w\+\ \-\*\#\$]*([\d\$AB]{2,3}\#{0,1}(?=\/100))[\d\/\ \-]*F{0,2}[\ \d]*([\w]\+*(?=\ ))[\ \d]+(?=\d)" RegexOption="Multiline" Result="[sem1_sub2]">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </ui:Matches>
+                                <ui:Matches BuilderPattern="(?&lt;=107001)[\d\/\w\+\ \-\*\#\$]*(\d{3}(?=\/100))[\d\/\ \-]*F{0,2}[\ \d]*([\w]\+*(?=\ ))[\ \d]+(?=\n)[\d\n]*(?&lt;=10700[92])[\d\/\w\+\ \-\*\#\$]*(\d{3}(?=\/100))[\d\/\ \-]*F{0,2}[\ \d]*([\w]\+*(?=\ ))[\ \d]+(?=\n)[\d\n]*(?&lt;=110003)[\d\/\w\+\ \-\*\#\$]*([\d\$]{3}(?=\/050))[\d\/\ \-]*F{0,2}[\ \d]*([\w]\+*(?=\ ))[\ \d]+(?=\d)[\d\n]*(?&lt;=1030[01][24])[\d\/\w\+\ \-\*\#\$]*([\d\$]{3}(?=\/100))[\d\/\ \-]*F{0,2}[\ \d]*([\w]\+*(?=\ ))[\ \d]+(?=\d)[\d\n]*(?&lt;=101005)[\d\/\w\+\ \-\*\#\$]*([\d\$]{3}(?=\/100))[\d\/\ \-]*F{0,2}[\ \d]*([\w]\+*(?=\ ))[\ \d]+(?=\d)[\d\n]*(?&lt;=102006)[\d\/\w\+\ \-\*\#\$]*([\d\$]{3}(?=\/100))[\d\/\ \-]*F{0,2}[\ \d]*([\w]\+*(?=\ ))[\ \d]+" DisplayName="Sem 1 Sub 3 Marks &amp; Grades" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="Matches_9" Input="[matches(idx).Groups(3).Value]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;(?&lt;=107001)[\\d\\\/\\w\\+\\ \\-\\*\\#\\$]*(\\d{3}(?=\\\/100))[\\d\\\/\\ \\-]*F{0,2}[\\ \\d]*([\\w]\\+*(?=\\ ))[\\ \\d]+(?=\\n)[\\d\\n]*(?&lt;=10700[92])[\\d\\\/\\w\\+\\ \\-\\*\\#\\$]*(\\d{3}(?=\\\/100))[\\d\\\/\\ \\-]*F{0,2}[\\ \\d]*([\\w]\\+*(?=\\ ))[\\ \\d]+(?=\\n)[\\d\\n]*(?&lt;=110003)[\\d\\\/\\w\\+\\ \\-\\*\\#\\$]*([\\d\\$]{3}(?=\\\/050))[\\d\\\/\\ \\-]*F{0,2}[\\ \\d]*([\\w]\\+*(?=\\ ))[\\ \\d]+(?=\\d)[\\d\\n]*(?&lt;=1030[01][24])[\\d\\\/\\w\\+\\ \\-\\*\\#\\$]*([\\d\\$]{3}(?=\\\/100))[\\d\\\/\\ \\-]*F{0,2}[\\ \\d]*([\\w]\\+*(?=\\ ))[\\ \\d]+(?=\\d)[\\d\\n]*(?&lt;=101005)[\\d\\\/\\w\\+\\ \\-\\*\\#\\$]*([\\d\\$]{3}(?=\\\/100))[\\d\\\/\\ \\-]*F{0,2}[\\ \\d]*([\\w]\\+*(?=\\ ))[\\ \\d]+(?=\\d)[\\d\\n]*(?&lt;=102006)[\\d\\\/\\w\\+\\ \\-\\*\\#\\$]*([\\d\\$]{3}(?=\\\/100))[\\d\\\/\\ \\-]*F{0,2}[\\ \\d]*([\\w]\\+*(?=\\ ))[\\ \\d]+&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(?&lt;=110003)[\ \-\*0]*([\d\$AB]{2,3}\#{0,1}(?=\/050))[\d\/\ \-]*F{0,2}[\ \d]*([\w]\+*(?=\ ))[\ \d]+(?=\d)" RegexOption="Multiline" Result="[sem1_sub3]" />
+                                <ui:Matches BuilderPattern="(?&lt;=107001)[\d\/\w\+\ \-\*\#\$]*(\d{3}(?=\/100))[\d\/\ \-]*F{0,2}[\ \d]*([\w]\+*(?=\ ))[\ \d]+(?=\n)[\d\n]*(?&lt;=10700[92])[\d\/\w\+\ \-\*\#\$]*(\d{3}(?=\/100))[\d\/\ \-]*F{0,2}[\ \d]*([\w]\+*(?=\ ))[\ \d]+(?=\n)[\d\n]*(?&lt;=110003)[\d\/\w\+\ \-\*\#\$]*([\d\$]{3}(?=\/050))[\d\/\ \-]*F{0,2}[\ \d]*([\w]\+*(?=\ ))[\ \d]+(?=\d)[\d\n]*(?&lt;=1030[01][24])[\d\/\w\+\ \-\*\#\$]*([\d\$]{3}(?=\/100))[\d\/\ \-]*F{0,2}[\ \d]*([\w]\+*(?=\ ))[\ \d]+(?=\d)[\d\n]*(?&lt;=101005)[\d\/\w\+\ \-\*\#\$]*([\d\$]{3}(?=\/100))[\d\/\ \-]*F{0,2}[\ \d]*([\w]\+*(?=\ ))[\ \d]+(?=\d)[\d\n]*(?&lt;=102006)[\d\/\w\+\ \-\*\#\$]*([\d\$]{3}(?=\/100))[\d\/\ \-]*F{0,2}[\ \d]*([\w]\+*(?=\ ))[\ \d]+" DisplayName="Sem 1 Sub 4 Marks &amp; Grades" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="Matches_10" Input="[matches(idx).Groups(3).Value]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;(?&lt;=107001)[\\d\\\/\\w\\+\\ \\-\\*\\#\\$]*(\\d{3}(?=\\\/100))[\\d\\\/\\ \\-]*F{0,2}[\\ \\d]*([\\w]\\+*(?=\\ ))[\\ \\d]+(?=\\n)[\\d\\n]*(?&lt;=10700[92])[\\d\\\/\\w\\+\\ \\-\\*\\#\\$]*(\\d{3}(?=\\\/100))[\\d\\\/\\ \\-]*F{0,2}[\\ \\d]*([\\w]\\+*(?=\\ ))[\\ \\d]+(?=\\n)[\\d\\n]*(?&lt;=110003)[\\d\\\/\\w\\+\\ \\-\\*\\#\\$]*([\\d\\$]{3}(?=\\\/050))[\\d\\\/\\ \\-]*F{0,2}[\\ \\d]*([\\w]\\+*(?=\\ ))[\\ \\d]+(?=\\d)[\\d\\n]*(?&lt;=1030[01][24])[\\d\\\/\\w\\+\\ \\-\\*\\#\\$]*([\\d\\$]{3}(?=\\\/100))[\\d\\\/\\ \\-]*F{0,2}[\\ \\d]*([\\w]\\+*(?=\\ ))[\\ \\d]+(?=\\d)[\\d\\n]*(?&lt;=101005)[\\d\\\/\\w\\+\\ \\-\\*\\#\\$]*([\\d\\$]{3}(?=\\\/100))[\\d\\\/\\ \\-]*F{0,2}[\\ \\d]*([\\w]\\+*(?=\\ ))[\\ \\d]+(?=\\d)[\\d\\n]*(?&lt;=102006)[\\d\\\/\\w\\+\\ \\-\\*\\#\\$]*([\\d\\$]{3}(?=\\\/100))[\\d\\\/\\ \\-]*F{0,2}[\\ \\d]*([\\w]\\+*(?=\\ ))[\\ \\d]+&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(?&lt;=10[34]0[01][24])[\d\/\w\+\ \-\*\#\$]*([\d\$AB]{2,3}\#{0,1}(?=\/100))[\d\/\ \-]*F{0,2}[\ \d]*([\w]\+*(?=\ ))[\ \d]+(?=\d)" RegexOption="Multiline" Result="[sem1_sub4]" />
+                                <ui:Matches BuilderPattern="(?&lt;=107001)[\d\/\w\+\ \-\*\#\$]*(\d{3}(?=\/100))[\d\/\ \-]*F{0,2}[\ \d]*([\w]\+*(?=\ ))[\ \d]+(?=\n)[\d\n]*(?&lt;=10700[92])[\d\/\w\+\ \-\*\#\$]*(\d{3}(?=\/100))[\d\/\ \-]*F{0,2}[\ \d]*([\w]\+*(?=\ ))[\ \d]+(?=\n)[\d\n]*(?&lt;=110003)[\d\/\w\+\ \-\*\#\$]*([\d\$]{3}(?=\/050))[\d\/\ \-]*F{0,2}[\ \d]*([\w]\+*(?=\ ))[\ \d]+(?=\d)[\d\n]*(?&lt;=1030[01][24])[\d\/\w\+\ \-\*\#\$]*([\d\$]{3}(?=\/100))[\d\/\ \-]*F{0,2}[\ \d]*([\w]\+*(?=\ ))[\ \d]+(?=\d)[\d\n]*(?&lt;=101005)[\d\/\w\+\ \-\*\#\$]*([\d\$]{3}(?=\/100))[\d\/\ \-]*F{0,2}[\ \d]*([\w]\+*(?=\ ))[\ \d]+(?=\d)[\d\n]*(?&lt;=102006)[\d\/\w\+\ \-\*\#\$]*([\d\$]{3}(?=\/100))[\d\/\ \-]*F{0,2}[\ \d]*([\w]\+*(?=\ ))[\ \d]+" DisplayName="Sem 1 Sub 5 Marks &amp; Grades" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="Matches_11" Input="[matches(idx).Groups(3).Value]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;(?&lt;=107001)[\\d\\\/\\w\\+\\ \\-\\*\\#\\$]*(\\d{3}(?=\\\/100))[\\d\\\/\\ \\-]*F{0,2}[\\ \\d]*([\\w]\\+*(?=\\ ))[\\ \\d]+(?=\\n)[\\d\\n]*(?&lt;=10700[92])[\\d\\\/\\w\\+\\ \\-\\*\\#\\$]*(\\d{3}(?=\\\/100))[\\d\\\/\\ \\-]*F{0,2}[\\ \\d]*([\\w]\\+*(?=\\ ))[\\ \\d]+(?=\\n)[\\d\\n]*(?&lt;=110003)[\\d\\\/\\w\\+\\ \\-\\*\\#\\$]*([\\d\\$]{3}(?=\\\/050))[\\d\\\/\\ \\-]*F{0,2}[\\ \\d]*([\\w]\\+*(?=\\ ))[\\ \\d]+(?=\\d)[\\d\\n]*(?&lt;=1030[01][24])[\\d\\\/\\w\\+\\ \\-\\*\\#\\$]*([\\d\\$]{3}(?=\\\/100))[\\d\\\/\\ \\-]*F{0,2}[\\ \\d]*([\\w]\\+*(?=\\ ))[\\ \\d]+(?=\\d)[\\d\\n]*(?&lt;=101005)[\\d\\\/\\w\\+\\ \\-\\*\\#\\$]*([\\d\\$]{3}(?=\\\/100))[\\d\\\/\\ \\-]*F{0,2}[\\ \\d]*([\\w]\\+*(?=\\ ))[\\ \\d]+(?=\\d)[\\d\\n]*(?&lt;=102006)[\\d\\\/\\w\\+\\ \\-\\*\\#\\$]*([\\d\\$]{3}(?=\\\/100))[\\d\\\/\\ \\-]*F{0,2}[\\ \\d]*([\\w]\\+*(?=\\ ))[\\ \\d]+&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(?&lt;=101005)[\d\/\w\+\ \-\*\#\$]*([\d\$AB]{2,3}\#{0,1}(?=\/100))[\d\/\ \-]*F{0,2}[\ \d]*([\w]\+*(?=\ ))[\ \d]+(?=\d)" RegexOption="Multiline" Result="[sem1_sub5]" />
+                                <ui:Matches BuilderPattern="(?&lt;=107001)[\d\/\w\+\ \-\*\#\$]*(\d{3}(?=\/100))[\d\/\ \-]*F{0,2}[\ \d]*([\w]\+*(?=\ ))[\ \d]+(?=\n)[\d\n]*(?&lt;=10700[92])[\d\/\w\+\ \-\*\#\$]*(\d{3}(?=\/100))[\d\/\ \-]*F{0,2}[\ \d]*([\w]\+*(?=\ ))[\ \d]+(?=\n)[\d\n]*(?&lt;=110003)[\d\/\w\+\ \-\*\#\$]*([\d\$]{3}(?=\/050))[\d\/\ \-]*F{0,2}[\ \d]*([\w]\+*(?=\ ))[\ \d]+(?=\d)[\d\n]*(?&lt;=1030[01][24])[\d\/\w\+\ \-\*\#\$]*([\d\$]{3}(?=\/100))[\d\/\ \-]*F{0,2}[\ \d]*([\w]\+*(?=\ ))[\ \d]+(?=\d)[\d\n]*(?&lt;=101005)[\d\/\w\+\ \-\*\#\$]*([\d\$]{3}(?=\/100))[\d\/\ \-]*F{0,2}[\ \d]*([\w]\+*(?=\ ))[\ \d]+(?=\d)[\d\n]*(?&lt;=102006)[\d\/\w\+\ \-\*\#\$]*([\d\$]{3}(?=\/100))[\d\/\ \-]*F{0,2}[\ \d]*([\w]\+*(?=\ ))[\ \d]+" DisplayName="Sem 1 Sub 6 Marks &amp; Grades" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="Matches_12" Input="[matches(idx).Groups(3).Value]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;(?&lt;=107001)[\\d\\\/\\w\\+\\ \\-\\*\\#\\$]*(\\d{3}(?=\\\/100))[\\d\\\/\\ \\-]*F{0,2}[\\ \\d]*([\\w]\\+*(?=\\ ))[\\ \\d]+(?=\\n)[\\d\\n]*(?&lt;=10700[92])[\\d\\\/\\w\\+\\ \\-\\*\\#\\$]*(\\d{3}(?=\\\/100))[\\d\\\/\\ \\-]*F{0,2}[\\ \\d]*([\\w]\\+*(?=\\ ))[\\ \\d]+(?=\\n)[\\d\\n]*(?&lt;=110003)[\\d\\\/\\w\\+\\ \\-\\*\\#\\$]*([\\d\\$]{3}(?=\\\/050))[\\d\\\/\\ \\-]*F{0,2}[\\ \\d]*([\\w]\\+*(?=\\ ))[\\ \\d]+(?=\\d)[\\d\\n]*(?&lt;=1030[01][24])[\\d\\\/\\w\\+\\ \\-\\*\\#\\$]*([\\d\\$]{3}(?=\\\/100))[\\d\\\/\\ \\-]*F{0,2}[\\ \\d]*([\\w]\\+*(?=\\ ))[\\ \\d]+(?=\\d)[\\d\\n]*(?&lt;=101005)[\\d\\\/\\w\\+\\ \\-\\*\\#\\$]*([\\d\\$]{3}(?=\\\/100))[\\d\\\/\\ \\-]*F{0,2}[\\ \\d]*([\\w]\\+*(?=\\ ))[\\ \\d]+(?=\\d)[\\d\\n]*(?&lt;=102006)[\\d\\\/\\w\\+\\ \\-\\*\\#\\$]*([\\d\\$]{3}(?=\\\/100))[\\d\\\/\\ \\-]*F{0,2}[\\ \\d]*([\\w]\\+*(?=\\ ))[\\ \\d]+&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(?&lt;=102006)[\d\/\w\+\ \-\*\#\$]*([\d\$AB]{2,3}\#{0,1}(?=\/100))[\d\/\ \-]*F{0,2}[\ \d]*([\w]\+*(?=\ ))[\ \d]+(?=\d)" RegexOption="Multiline" Result="[sem1_sub6]" />
+                              </Sequence>
+                              <Sequence DisplayName="SEM 2" sap:VirtualizedContainerService.HintSize="376,646" sap2010:WorkflowViewState.IdRef="Sequence_18">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:Matches DisplayName="Sem 2 Sub 1 Marks &amp; Grades" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="Matches_16" Input="[matches(idx).Groups(4).Value]" IsBuilderTabModified="False" Pattern="(?&lt;=107008)[\d\/\w\+\ \-\*\#\$]*([\d\$AB]{2,3}\#{0,1}(?=\/100))[\d\/\ \-]*F{0,2}[\ \d]*([\w]\+*(?=\ ))[\ \d]+(?=\d)" RegexOption="IgnoreCase, Compiled" Result="[sem2_sub1]" />
+                                <ui:Matches DisplayName="Sem 2 Sub 2 Marks &amp; Grades" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="Matches_13" Input="[matches(idx).Groups(4).Value]" IsBuilderTabModified="False" Pattern="(?&lt;=10700[92])[\d\/\w\+\ \-\*\#\$]*([\d\$AB]{2,3}\#{0,1}(?=\/100))[\d\/\ \-]*F{0,2}[\ \d]*([\w]\+*(?=\ ))[\ \d]+(?=\d)" RegexOption="IgnoreCase, Compiled" Result="[sem2_sub2]" />
+                                <ui:Matches DisplayName="Sem 2 Sub 3 Marks &amp; Grades" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="Matches_14" Input="[matches(idx).Groups(4).Value]" IsBuilderTabModified="False" Pattern="(?&lt;=110010)[\ \-\*0]*([\d\$AB]{2,3}\#{0,1}(?=\/050))[\d\/\ \-]*F{0,2}[\ \d]*([\w]\+*(?=\ ))[\ \d]+(?=\d)" RegexOption="IgnoreCase, Compiled" Result="[sem2_sub3]" />
+                                <ui:Matches DisplayName="Sem 2 Sub 4 Marks &amp; Grades" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="Matches_15" Input="[matches(idx).Groups(4).Value]" IsBuilderTabModified="False" Pattern="(?&lt;=101011)[\ \-\*\d\/\#\$AB]*([\d\$AB]{2,3}\#{0,1}(?=\/100))[\d\/\ \-]*F{0,2}[\ \d]*([\w]\+*(?=\ ))[\ \d]+(?=\d)" RegexOption="IgnoreCase, Compiled" Result="[sem2_sub4]" />
+                                <ui:Matches DisplayName="Sem 2 Sub 5 Marks &amp; Grades" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="Matches_6" Input="[matches(idx).Groups(4).Value]" IsBuilderTabModified="False" Pattern="(?&lt;=10[34]0[01][24])[\d\/\w\+\ \-\*\#\$]*([\d\$AB]{2,3}\#{0,1}(?=\/100))[\d\/\ \-]*F{0,2}[\ \d]*([\w]\+*(?=\ ))[\ \d]+(?=\d)" RegexOption="IgnoreCase, Compiled" Result="[sem2_sub5]" />
+                                <ui:Matches DisplayName="Sem 2 Sub 6 Marks &amp; Grades" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="Matches_17" Input="[matches(idx).Groups(4).Value]" IsBuilderTabModified="False" Pattern="(?&lt;=102013)[\d\/\w\+\ \-\*\#\$]*([\d\$AB]{2,3}\#{0,1}(?=\/100))[\d\/\ \-]*F{0,2}[\ \d]*([\w]\+*(?=\ ))[\ \d]+(?=\d)" RegexOption="IgnoreCase, Compiled" Result="[sem2_sub6]" />
+                              </Sequence>
+                              <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{matches(idx).Groups(1).Value,matches(idx).Groups(2).Value,sem1_sub1(0).Groups(1).Value,sem1_sub1(0).Groups(2).Value,sem1_sub2(0).Groups(1).Value,sem1_sub2(0).Groups(2).Value,sem1_sub3(0).Groups(1).Value,sem1_sub3(0).Groups(2).Value,sem1_sub4(0).Groups(1).Value,sem1_sub4(0).Groups(2).Value,sem1_sub5(0).Groups(1).Value,sem1_sub5(0).Groups(2).Value,sem1_sub6(0).Groups(1).Value,sem1_sub6(0).Groups(2).Value,sem2_sub1(0).Groups(1).Value,sem2_sub1(0).Groups(2).Value,sem2_sub2(0).Groups(1).Value,sem2_sub2(0).Groups(2).Value,sem2_sub3(0).Groups(1).Value,sem2_sub3(0).Groups(2).Value,sem2_sub4(0).Groups(1).Value,sem2_sub4(0).Groups(2).Value,sem2_sub5(0).Groups(1).Value,sem2_sub5(0).Groups(2).Value,sem2_sub6(0).Groups(1).Value,sem2_sub6(0).Groups(2).Value,matches(idx).Groups(5).Value,matches(idx).Groups(6).Value}]" DataTable="[sheet1_dt]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="376,185" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+                            </Sequence>
+                          </ActivityAction>
+                        </ui:RepeatNumberOfTimesX.Body>
+                        <sap:WorkflowViewStateService.ViewState>
+                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                          </scg:Dictionary>
+                        </sap:WorkflowViewStateService.ViewState>
+                      </ui:RepeatNumberOfTimesX>
+                      <FlowStep.Next>
+                        <FlowStep x:Name="__ReferenceID5">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <av:Point x:Key="ShapeLocation">200,614.02</av:Point>
+                              <av:Size x:Key="ShapeSize">200,51</av:Size>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="434,288" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_2" InstanceCachePeriod="3000" WorkbookPath="output\FE Result.xlsx">
+                            <ui:ExcelApplicationScope.Body>
+                              <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+                                <ActivityAction.Argument>
+                                  <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+                                </ActivityAction.Argument>
+                                <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,179" sap2010:WorkflowViewState.IdRef="Sequence_20">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <ui:ExcelWriteRange AddHeaders="False" DataTable="[sheet1_dt]" DisplayName="Write Range" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteRange_1" SheetName="Sheet1" StartingCell="A5" />
+                                </Sequence>
+                              </ActivityAction>
+                            </ui:ExcelApplicationScope.Body>
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                          </ui:ExcelApplicationScope>
+                        </FlowStep>
+                      </FlowStep.Next>
+                    </FlowStep>
+                  </FlowStep.Next>
+                </FlowStep>
+              </FlowStep.Next>
+            </FlowStep>
+          </FlowStep.Next>
+        </FlowStep>
+      </FlowStep.Next>
+    </FlowStep>
+    <x:Reference>__ReferenceID0</x:Reference>
+    <x:Reference>__ReferenceID1</x:Reference>
+    <x:Reference>__ReferenceID2</x:Reference>
+    <x:Reference>__ReferenceID3</x:Reference>
+    <FlowStep x:Name="__ReferenceID6">
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <av:Point x:Key="ShapeLocation">490,184.5</av:Point>
+          <av:Size x:Key="ShapeSize">200,51</av:Size>
+          <av:PointCollection x:Key="ConnectorLocation">490,210 460,210 460,140 431,140</av:PointCollection>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+      <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Set Cell formula" sap:VirtualizedContainerService.HintSize="200,51" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="output\FE Result.xlsx">
+        <ui:ExcelApplicationScope.Body>
+          <ActivityAction x:TypeArguments="ui:WorkbookApplication">
+            <ActivityAction.Argument>
+              <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
+            </ActivityAction.Argument>
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,242" sap2010:WorkflowViewState.IdRef="Sequence_13">
+              <sap:WorkflowViewStateService.ViewState>
+                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                </scg:Dictionary>
+              </sap:WorkflowViewStateService.ViewState>
+              <ui:CommentOut DisplayName="Comment Out" sap:VirtualizedContainerService.HintSize="334,51" sap2010:WorkflowViewState.IdRef="CommentOut_1">
+                <ui:CommentOut.Body>
+                  <Sequence DisplayName="Ignored Activities" sap:VirtualizedContainerService.HintSize="242,370" sap2010:WorkflowViewState.IdRef="Sequence_19">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Sequence DisplayName="SEM 1 Backlogs" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_14">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:ExcelWriteCell Cell="AC5" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_1" SheetName="Sheet1" Text="[&quot;=COUNTIF(C5:N5,&quot;&quot;F&quot;&quot;)&quot;]" />
+                      <ui:ExcelWriteCell Cell="AC6" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_2" SheetName="Sheet1" Text="[&quot;=COUNTIF(C6:N6,&quot;&quot;F&quot;&quot;)&quot;]" />
+                      <ui:ExcelAutoFillRange DisplayName="Auto Fill Range" FillRange="AC5:AC1100" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelAutoFillRange_1" SheetName="Sheet1" SourceRange="AC5:AC6" />
+                    </Sequence>
+                    <Sequence DisplayName="SEM 2 Backlogs" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_16">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:ExcelWriteCell Cell="AD5" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_3" SheetName="Sheet1" Text="[&quot;=COUNTIF(O5:Z5,&quot;&quot;F&quot;&quot;)&quot;]" />
+                      <ui:ExcelWriteCell Cell="AD6" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_4" SheetName="Sheet1" Text="[&quot;=COUNTIF(O6:Z6,&quot;&quot;F&quot;&quot;)&quot;]" />
+                      <ui:ExcelAutoFillRange DisplayName="Auto Fill Range" FillRange="AD5:AD1100" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelAutoFillRange_2" SheetName="Sheet1" SourceRange="AD5:AD6" />
+                    </Sequence>
+                    <Sequence DisplayName="Total Backlogs" sap:VirtualizedContainerService.HintSize="200,66" sap2010:WorkflowViewState.IdRef="Sequence_15">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <ui:ExcelWriteCell Cell="AE5" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_5" SheetName="Sheet1" Text="=SUM($AC5,$AD5)" />
+                      <ui:ExcelWriteCell Cell="AE6" DisplayName="Write Cell" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelWriteCell_6" SheetName="Sheet1" Text="=SUM($AC6,$AD6)" />
+                      <ui:ExcelAutoFillRange DisplayName="Auto Fill Range" FillRange="AE5:AE1100" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="ExcelAutoFillRange_3" SheetName="Sheet1" SourceRange="AE5:AE6" />
+                    </Sequence>
+                  </Sequence>
+                </ui:CommentOut.Body>
+                <sap:WorkflowViewStateService.ViewState>
+                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                    <x:Boolean x:Key="IsExpanded">False</x:Boolean>
+                    <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                  </scg:Dictionary>
+                </sap:WorkflowViewStateService.ViewState>
+              </ui:CommentOut>
+              <ui:ExcelReadRange AddHeaders="True" DataTable="[sheet1_dt]" DisplayName="Read Range" sap:VirtualizedContainerService.HintSize="334,59" sap2010:WorkflowViewState.IdRef="ExcelReadRange_1" Range="A3:AB3" SheetName="Sheet1" />
+            </Sequence>
+          </ActivityAction>
+        </ui:ExcelApplicationScope.Body>
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </ui:ExcelApplicationScope>
+      <FlowStep.Next>
+        <x:Reference>__ReferenceID4</x:Reference>
+      </FlowStep.Next>
+    </FlowStep>
+    <x:Reference>__ReferenceID5</x:Reference>
+  </Flowchart>
+</Activity>

@@ -1,0 +1,53 @@
+Sheet 1:
+
+Read pdf file
+Convert into text/string
+
+For each Mark Sheet:
+	Extract seat number(Regex1 group: 1)
+	Extract student name(Regex1 group: 2)
+	for SEM I:(Regex1 group: 2)
+		extract subjects marks(OE+TH) and Grades of 107001,107002,110003,104004,101005,102006
+	for SEM II:(Regex1 group: 4)
+		extract subjects marks(OE+TH) and Grades of 107008,107009,110010,101011,103012,102013
+	Extract SGPA(Regex1 group: 5)
+	Extract Total Credit(Regex1 group: 6)
+	Get SEM I backlogs
+	Get SEM II backlogs
+	Calculate total backlog
+
+============================================================
+Sheet 2:
+For Table 1: Get following details
+
+Total no of Students Enrolled
+Total no of Students Appeared
+All Clear
+First Class With Distinction
+First Class
+Higher Second Class
+Second Class
+Pass Class
+One Backlog
+Two Backlog
+Three Backlog
+Four Backlog
+Fail (more than 4 )
+Students promoted to new class
+
+
+For Table 2:
+For Each subject calculate
+	No of passed students out of
+	Highest Marks Scored
+	% of Passing
+
+
+For Table 3:
+Get All to 10 Toppers with Seat Number, Name, SGPA
+
+Histogram 1:
+Subject wise Highest Marks from Table 2
+
+Histogram 2:
+Subject Wise Result(% of Passing) from Table 2
